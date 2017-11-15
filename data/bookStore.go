@@ -64,8 +64,8 @@ func (bs *BookStore) FindAll(books *[]Book) error {
 }
 
 //Init initializes thing
-func (bs *BookStore) Init() error {
-	db, err := bolt.Open("books.db", 0600, nil)
+func (bs *BookStore) Init(config *Config) error {
+	db, err := bolt.Open(config.DBName, 0600, nil)
 	if err != nil {
 		return err
 	}
@@ -85,7 +85,7 @@ func (bs *BookStore) Shutdown() error {
 }
 
 //NewBookStore BookStore factory method
-func NewBookStore(config *Config) (*BookStore, error) {
+func NewBookStore() (*BookStore, error) {
 	return &BookStore{
 		store: &Store{
 			db: nil,

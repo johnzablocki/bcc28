@@ -9,11 +9,11 @@ import (
 )
 
 func main() {
-	bookStore, err := data.NewBookStore(&data.Config{})
+	bookStore, err := data.NewBookStore()
 	if err != nil {
 		panic(err)
 	}
-	err = bookStore.Init()
+	err = bookStore.Init(&data.Config{DBName: "books.db"})
 	if err != nil {
 		panic(err)
 	}
