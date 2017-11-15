@@ -1,2 +1,2 @@
-# bcc28
-Boston Code Camp 28 sample
+# Boston Code Camp 28 Demo 
+Going, Going, Golang...
