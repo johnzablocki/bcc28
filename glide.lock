@@ -1,0 +1,6 @@
+hash: 4bc9cfba321780e35a1332b25397edc8bbebac590f46d2ed2166afbf5c8f30c7
+updated: 2017-11-15T11:59:48.358438-05:00
+imports:
+- name: github.com/coreos/bbolt
+  version: 3c6cbfb299c11444eb2f8c9d48f0d2ce09157423
+testImports: []
