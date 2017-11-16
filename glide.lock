@@ -1,6 +1,24 @@
-hash: 4bc9cfba321780e35a1332b25397edc8bbebac590f46d2ed2166afbf5c8f30c7
-updated: 2017-11-15T11:59:48.358438-05:00
+hash: 99bc26b184ade1035b99a80e55cf230ca7fb8291341d98527695f65e91dc40e9
+updated: 2017-11-15T18:40:04.508168-05:00
 imports:
 - name: github.com/coreos/bbolt
   version: 3c6cbfb299c11444eb2f8c9d48f0d2ce09157423
+- name: github.com/kardianos/govendor
+  version: f60bcdf2e61a16899c2bd0c793d5914842034455
+- name: github.com/klauspost/compress
+  version: ea08389e0dc46025380296f7dd04ab0e8de36adb
+  subpackages:
+  - flate
+  - gzip
+  - zlib
+- name: github.com/klauspost/cpuid
+  version: ae7887de9fa5d2db4eaa8174a7eff2c1ac00f2da
+- name: github.com/valyala/fasthttp
+  version: d42167fd04f636e20b005e9934159e95454233c7
+  subpackages:
+  - fasthttputil
+- name: golang.org/x/sys
+  version: bf42f188b9bc6f2cf5b8ee5a912ef1aedd0eba4c
+  subpackages:
+  - unix
 testImports: []
