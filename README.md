@@ -28,7 +28,29 @@ From the root of the project (where you cloned into), run `glide install`
 
 From the root (where main.go is) run `go run main.go` OR `go build` and run the bcc28 executable. 
 
+### Test the App
 
+In Postman (or any other HTTP tool) post the following JSON body to http://localhost:8888
+
+```
+{
+	"title": "Learning Golang",
+	"isbn": "123456789"
+}
+```
+
+You should see the response below.
+
+```
+{
+    "data": {
+        "title": "Learning Goissssssh",
+        "isbn": "123456789"
+    }
+}
+```
+
+The browse to (or use Postman) to GET http://localhost:8888.  You should see an array of items back.
 
 
 
