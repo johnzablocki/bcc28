@@ -9,18 +9,25 @@ import (
 type (
 	//BookStore stores books
 	BookStore struct {
-		store      *Store
+		store      *Store //store cannot be accessed outside of BookStore's methods
 		bucketName []byte
 	}
 )
 
 //Save upserts a book
+//In Go, a method may be attached to a struct by defining the method
+//with a pointer to that type as with (bs *BookStore)
+//This behavior is (quite) loosely analogous to C# extension methods
+//in that methods are attached to an entity outside of its definition
 func (bs *BookStore) Save(b *Book) error {
+	//This function demonstrates function references in Go
+	//Store.Update takes a function as an argument
 	return bs.store.Update(func(tx *bolt.Tx) error {
 		value, err := json.Marshal(b)
 		if err != nil {
 			return err
 		}
+		//Add the key/value pair to the bucket
 		tx.Bucket(bs.bucketName).Put([]byte(b.ID), value)
 		return nil
 	})
@@ -63,7 +70,7 @@ func (bs *BookStore) FindAll(books *[]Book) error {
 	})
 }
 
-//Init initializes thing
+//Init initializes the Bookstore by connecting to the bolt database
 func (bs *BookStore) Init(config *Config) error {
 	db, err := bolt.Open(config.DBName, 0600, nil)
 	if err != nil {
